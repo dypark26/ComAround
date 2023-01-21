@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import Sidebar from "../components/SideNav/Sidebar";
 
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <Sidebar>
+      <>{`qoalstn`}</>
+    </Sidebar>
+  );
 };
 
 export default MainPage;
