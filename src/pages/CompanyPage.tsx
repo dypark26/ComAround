@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import SurveyModal from '../components/SurveyModal';
 
 const CompanyPage = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleModal = () => {
+    setModalOpen(!modalOpen);
+    console.log(modalOpen);
+  };
+
   return (
     <CompanyPageContainer>
       <SideNav>SideNav</SideNav>
       <MainArea>
         <Map>Map</Map>
-        <CompanyReview>CompanyReview</CompanyReview>
+        <CompanyReview>
+          <div>companyReview</div>
+          <SurveyButton onClick={handleModal}>설문조사 하러가기</SurveyButton>
+        </CompanyReview>
       </MainArea>
+      {modalOpen ? <SurveyModal handleModal={handleModal} /> : null}
     </CompanyPageContainer>
   );
 };
@@ -35,6 +47,19 @@ const Map = styled.div`
   background-color: beige;
 `;
 const CompanyReview = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 50vh;
   background-color: tomato;
+  gap: 20px;
+`;
+
+const SurveyButton = styled.button`
+  width: 30vw;
+  height: 10vh;
+  background-color: beige;
+  border: none;
+  border-radius: 20px;
 `;
