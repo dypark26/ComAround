@@ -2,8 +2,43 @@ import styled from 'styled-components';
 import StarCard from '../components/StarCard';
 import close from '../assets/close-button.svg';
 import ProsConsList from './ProsConsList';
+import { supabase } from '../shared/supabaseClient';
+import { v4 as uuidv4 } from 'uuid';
 
 const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
+  // 잘 들어가나 get 테스트
+  const getSurveyData = async () => {
+    const { data } = await supabase.from('SurveyData').select();
+    console.log('data', data);
+  };
+
+  const postSurveyData = async () => {
+    const response = await supabase.from('SurveyData').insert({
+      id: 1,
+      company: 'naver',
+      commute: 5,
+      convenient: 3,
+      restaurant: 2,
+      pros1: true,
+      pros2: true,
+      pros3: true,
+      pros4: true,
+      pros5: true,
+      cons1: false,
+      cons2: false,
+      cons3: false,
+      cons4: false,
+      cons5: false,
+    });
+    if (response.error) {
+      console.log('error', response.error);
+    }
+  };
+
+  const handleSubmit = () => {
+    postSurveyData();
+  };
+  getSurveyData();
   return (
     <>
       <ModalSection>
@@ -21,7 +56,7 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
           <ProsConsList section="pros">이런점이 좋아요</ProsConsList>
           <ProsConsList section="cons">이런점이 아쉬워요</ProsConsList>
         </ContentsContainer>
-        <SubmitButton>제출하기</SubmitButton>
+        <SubmitButton onClick={handleSubmit}>제출하기</SubmitButton>
       </ModalSection>
       <ModalBackground />
     </>
@@ -99,4 +134,7 @@ const SubmitButton = styled.button`
   color: #62ffa1;
   font-weight: 700;
   font-size: 24px;
+  :hover {
+    cursor: pointer;
+  }
 `;
