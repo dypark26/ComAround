@@ -25,3 +25,20 @@ declare type SurveyData = {
   cons4: boolean;
   cons5: boolean;
 };
+
+declare type commuteData = {
+  commute: number;
+};
+
+declare type convenientData = {
+  convenient: number;
+};
+
+declare type restaurantData = {
+  restaurant: number;
+};
+
+declare type starData = {
+  name: string;
+  value: number;
+};
