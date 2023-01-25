@@ -10,11 +10,12 @@ const Container = styled.div`
 `;
 
 const menuList = [
-  { menuName: "네이버", path: "/" },
-  { menuName: "카카오", path: "/portfolio" },
-  { menuName: "라인", path: "/info" },
-  { menuName: "쿠팡", path: "/etc" },
-  { menuName: "우아한 형제들", path: "/etc" },
+  { menuName: "메인", path: "/" },
+  { menuName: "네이버", path: "../pages/CompanyPage" },
+  { menuName: "카카오", path: "../../pages/CompanyPage" },
+  { menuName: "라인", path: "../../pages/CompanyPage" },
+  { menuName: "쿠팡", path: "../../pages/CompanyPage" },
+  { menuName: "우아한 형제들", path: "../../pages/CompanyPage" },
 ];
 
 const Menu = () => {

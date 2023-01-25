@@ -8,5 +8,6 @@ declare module "styled-components" {
     header: string;
     herdernumber: string;
     activeMenu: string;
+    children?: JSX.Element | JSX.Element[];
   }
 }

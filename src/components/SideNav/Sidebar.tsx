@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import Menu from "../SideNav/Menu";
-import Switch from "../SideNav/Switch";
+import Menu from "./Menu";
+import Switch from "./Switch";
 
 const Container = styled.div`
   width: 100%;
