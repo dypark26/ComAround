@@ -1,8 +1,11 @@
-import React from 'react';
-import Sidebar from '../components/SideNav/Sidebar';
+import SideNav from "../components/SideNav";
 
 const CompanyPage = () => {
-  return <div>CompanyPage</div>;
+  return (
+    <SideNav menuName={""} path={""}>
+      <div>CompanyPage</div>
+    </SideNav>
+  );
 };
 
 export default CompanyPage;
