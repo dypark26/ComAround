@@ -3,9 +3,10 @@ import CardSlide from "../components/CardSlide";
 
 const MainPage = () => {
   return (
-    <SideNav menuName={"ComAround"} path={"/mainpage"}>
+    <>
+      <SideNav />
       <CardSlide></CardSlide>
-    </SideNav>
+    </>
   );
 };
 

@@ -1,10 +1,12 @@
 import SideNav from "../components/SideNav";
+import Map from "../components/Map";
 
 const CompanyPage = () => {
   return (
-    <SideNav menuName={""} path={""}>
-      <div>CompanyPage</div>
-    </SideNav>
+    <>
+      <SideNav />
+      <Map></Map>
+    </>
   );
 };
 

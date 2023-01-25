@@ -1,14 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
+import img from "../img/imgs1.jpg";
+import img2 from "../img/imgs2.jpg";
+import img3 from "../img/imgs3.jpg";
 
-const images: string[] = [
-  "https://media.vlpt.us/images/holim0/post/7d80e99d-11bc-4327-b16d-324a8daa0014/image.png",
-  "https://media.vlpt.us/images/wooder2050/post/3c21dfdf-67b9-4301-8c25-e505303e246a/og-image.png",
-  "https://media.vlpt.us/images/edie_ko/post/4631c9fc-fa76-47e9-9d77-bc160476c60a/1_mv73TpGPVFXzJqu920m5Og.png",
-  "https://media.vlpt.us/images/dongha1992/post/2efd8b1b-d186-40bc-a574-026f180750ba/react.jpeg",
-  "https://media.vlpt.us/images/kimhodol/post/9c9e0ba3-20b1-4ba9-9a66-9af9ab5cf2e6/hodol-typescript.jpg",
-  "https://media.vlpt.us/images/wooder2050/post/3c21dfdf-67b9-4301-8c25-e505303e246a/og-image.png",
-];
+const images: string[] = [img, img2, img3];
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -59,6 +55,7 @@ const CardSlide = (): JSX.Element => {
   useEffect(() => {
     if (pickIndex === images.length - 1) {
       // 마지막 이미지를 보여주고 있을 때
+
       setTimeout(() => {
         setPickIndex(0);
       }, custominterval);
@@ -81,10 +78,11 @@ const CardSlide = (): JSX.Element => {
       })
     );
   }, [onPickIndex, pickIndex]);
-
+  console.log(images[1]);
   return (
     <Container>
       <FillImage src={images[pickIndex]} />
+
       <PickerWrapper>
         {pickers}
         {/* 위에서 선언해준 pickers JSX.Element[]들을 렌더링
