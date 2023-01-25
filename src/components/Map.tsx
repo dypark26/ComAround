@@ -56,44 +56,44 @@ const Map = () => {
         const map = new kakao.maps.Map(mapContainer, options);
 
         //마커설정
-        const 카카오마커 = new kakao.maps.LatLng(
+        const KaKao = new kakao.maps.LatLng(
           33.4524641253727,
           126.57087301364975
         );
-        const 쿠팡마커 = new kakao.maps.LatLng(
+        const Coupang = new kakao.maps.LatLng(
           37.51573384062068,
           127.09918343637015
         );
-        const 네이버마커 = new kakao.maps.LatLng(
+        const Naver = new kakao.maps.LatLng(
           37.358848483254,
           127.10505506241752
         );
-        const 라인마커 = new kakao.maps.LatLng(37.3851, 127.1231);
-        const 배민마커 = new kakao.maps.LatLng(
+        const Line = new kakao.maps.LatLng(37.3851, 127.1231);
+        const Baemin = new kakao.maps.LatLng(
           37.51689976320087,
           127.11271636955665
         );
         //마커표시
-        const 카카오marker = new kakao.maps.Marker({
-          position: 카카오마커,
+        const KaKaoMarker = new kakao.maps.Marker({
+          position: KaKao,
         });
-        const 쿠팡marker = new kakao.maps.Marker({
-          position: 쿠팡마커,
+        const CoupangMarker = new kakao.maps.Marker({
+          position: Coupang,
         });
-        const 네이버marker = new kakao.maps.Marker({
-          position: 네이버마커,
+        const NaverMarker = new kakao.maps.Marker({
+          position: Naver,
         });
-        const 라인marker = new kakao.maps.Marker({
-          position: 라인마커,
+        const LineMarker = new kakao.maps.Marker({
+          position: Line,
         });
-        const 배민marker = new kakao.maps.Marker({
-          position: 배민마커,
+        const BaeminMarker = new kakao.maps.Marker({
+          position: Baemin,
         });
-        카카오marker.setMap(map);
-        쿠팡marker.setMap(map);
-        네이버marker.setMap(map);
-        라인marker.setMap(map);
-        배민marker.setMap(map);
+        KaKaoMarker.setMap(map);
+        CoupangMarker.setMap(map);
+        NaverMarker.setMap(map);
+        LineMarker.setMap(map);
+        BaeminMarker.setMap(map);
       });
     });
   }, [locationState.center.lat, locationState.center.lng]);
