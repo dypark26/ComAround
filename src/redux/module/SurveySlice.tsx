@@ -22,19 +22,21 @@ export const surveySlice = createSlice({
   name: "surveyData",
   initialState,
   reducers: {
-    commuteState(state, action: PayloadAction<commuteData>) {
-      return (state = { ...state, commute: action.payload.commute });
+    starState(state, action: PayloadAction<starData>) {
+      const { name, rating } = action.payload;
+      const newState: any = { ...state };
+      newState[name] = rating;
+      return newState;
     },
-    convenientState(state, action: PayloadAction<convenientData>) {
-      return (state = { ...state, convenient: action.payload.convenient });
-    },
-    restaurantState(state, action: PayloadAction<restaurantData>) {
-      return (state = { ...state, restaurant: action.payload.restaurant });
+    prosConsState(state, action: PayloadAction<prosConsData>) {
+      const { name } = action.payload;
+      const newState: any = { ...state };
+      newState[name] = !newState[name];
+      return newState;
     },
   },
 });
 
-export const { commuteState, convenientState, restaurantState } =
-  surveySlice.actions;
+export const { starState, prosConsState } = surveySlice.actions;
 
 export default surveySlice.reducer;

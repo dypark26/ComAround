@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import SurveyModal from '../components/SurveyModal';
+import { useState } from "react";
+import styled from "styled-components";
+import SurveyModal from "../components/SurveyModal";
 
 const CompanyPage = () => {
+  // 설문조사 하러가기 버튼 누를 때마다 모달창 on / off
   const [modalOpen, setModalOpen] = useState(false);
   const handleModal = () => {
     setModalOpen(!modalOpen);
-    console.log(modalOpen);
   };
 
   return (

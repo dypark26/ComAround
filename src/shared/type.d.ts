@@ -1,13 +1,3 @@
-declare type ProsConsProps = {
-  children: string;
-  section: string;
-};
-
-declare type ProsConsType = {
-  id: number;
-  content: string;
-};
-
 declare type SurveyData = {
   id: number;
   company: string;
@@ -26,19 +16,22 @@ declare type SurveyData = {
   cons5: boolean;
 };
 
-declare type commuteData = {
-  commute: number;
-};
-
-declare type convenientData = {
-  convenient: number;
-};
-
-declare type restaurantData = {
-  restaurant: number;
+declare type ProsConsType = {
+  id: string;
+  type?: string;
+  content: string;
 };
 
 declare type starData = {
   name: string;
-  value: number;
+  rating: number;
+};
+
+declare type prosConsData = {
+  name: string;
+};
+
+declare type listProps = {
+  listType: string;
+  children: string;
 };

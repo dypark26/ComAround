@@ -7,10 +7,24 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/config/configStore";
 
 const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
-  // Supabase post 테스트
   const surveyData = useSelector((state: RootState) => state.surveyData);
-  console.log("surveyData", surveyData);
 
+  // 값이 잘 변경 되는지 확인
+  console.log("교통편의 몇점?", surveyData.commute);
+  console.log("편의시설 몇점?", surveyData.convenient);
+  console.log("주변맛집 몇점?", surveyData.restaurant);
+  console.log("장점1:", surveyData.pros1);
+  console.log("장점2:", surveyData.pros2);
+  console.log("장점3:", surveyData.pros3);
+  console.log("장점4:", surveyData.pros4);
+  console.log("장점5:", surveyData.pros5);
+  console.log("단점1:", surveyData.cons1);
+  console.log("단점2:", surveyData.cons2);
+  console.log("단점3:", surveyData.cons3);
+  console.log("단점4:", surveyData.cons4);
+  console.log("단점5:", surveyData.cons5);
+
+  // Supabase로 데이터 포스트하는 함수
   const postSurveyData = async () => {
     const response = await supabase.from("SurveyData").insert(surveyData);
     if (response.error) {
@@ -18,7 +32,7 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
     }
   };
 
-  // Supabase surveyData 제출
+  // 제출버튼 클릭하면, Supabase로 설문조사 데이터 제출
   const handleSubmit = () => {
     postSurveyData();
   };
@@ -33,12 +47,12 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
         <ContentsContainer>
           <StarListWrapper>
             <div>평점</div>
-            <StarCard>교통편의</StarCard>
-            <StarCard>편의시설</StarCard>
-            <StarCard>주변맛집</StarCard>
+            <StarCard listType={"commute"}>교통편의</StarCard>
+            <StarCard listType={"convenient"}>편의시설</StarCard>
+            <StarCard listType={"restaurant"}>주변맛집</StarCard>
           </StarListWrapper>
-          <ProsConsList section="pros">이런점이 좋아요</ProsConsList>
-          <ProsConsList section="cons">이런점이 아쉬워요</ProsConsList>
+          <ProsConsList listType={"pros"}>이런점이 좋아요</ProsConsList>
+          <ProsConsList listType={"cons"}>이런점이 아쉬워요</ProsConsList>
         </ContentsContainer>
         <SubmitButton onClick={handleSubmit}>제출하기</SubmitButton>
       </ModalSection>
