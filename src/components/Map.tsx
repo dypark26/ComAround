@@ -19,12 +19,22 @@ const Map = () => {
     });
   };
 
-  const [state, setState] = useState({
+  const [locationState, setLocationState] = useState({
     // 지도의 초기 위치
     center: { lat: 33.452613, lng: 126.570888 },
     // 지도 위치 변경할때 panTo효과
     isPanto: false,
   });
+
+  const companyLocation = [
+    { 카카오: { lat: 33.4524641253727, lng: 126.57087301364975 } },
+    { 쿠팡: { lat: 37.51573384062068, lng: 127.09918343637015 } },
+    { 네이버: { lat: 37.358848483254, lng: 127.10505506241752 } },
+    { 라인: { lat: 37.3851, lng: 127.1231 } },
+    { 우아한형제들: { lat: 37.51689976320087, lng: 127.11271636955665 } },
+  ];
+
+  const Change = (lat: number, lng: number) => {};
 
   useEffect(() => {
     const my_script = new_script(
@@ -37,7 +47,10 @@ const Map = () => {
       kakao.maps.load(() => {
         const mapContainer = document.getElementById("map") as HTMLElement;
         const options = {
-          center: new kakao.maps.LatLng(state.center.lat, state.center.lng),
+          center: new kakao.maps.LatLng(
+            locationState.center.lat,
+            locationState.center.lng
+          ),
           level: 3,
         };
         const map = new kakao.maps.Map(mapContainer, options);
@@ -83,7 +96,7 @@ const Map = () => {
         배민marker.setMap(map);
       });
     });
-  }, [state.center.lat, state.center.lng]);
+  }, [locationState.center.lat, locationState.center.lng]);
   return (
     <div className="App">
       <div
@@ -103,7 +116,7 @@ const Map = () => {
       />
       <StyledButton
         onClick={() =>
-          setState({
+          setLocationState({
             center: { lat: 33.45255435841544, lng: 126.57089408055378 },
             isPanto: false,
           })
@@ -113,7 +126,7 @@ const Map = () => {
       </StyledButton>
       <StyledButton
         onClick={() =>
-          setState({
+          setLocationState({
             center: { lat: 37.51573384062068, lng: 127.09918343637015 },
             isPanto: false,
           })
@@ -123,7 +136,7 @@ const Map = () => {
       </StyledButton>
       <StyledButton
         onClick={() =>
-          setState({
+          setLocationState({
             center: { lat: 37.358848483254, lng: 127.10505506241752 },
             isPanto: false,
           })
@@ -133,7 +146,7 @@ const Map = () => {
       </StyledButton>
       <StyledButton
         onClick={() =>
-          setState({
+          setLocationState({
             center: { lat: 37.3851, lng: 127.1231 },
             isPanto: false,
           })
@@ -143,7 +156,7 @@ const Map = () => {
       </StyledButton>
       <StyledButton
         onClick={() =>
-          setState({
+          setLocationState({
             center: { lat: 37.51689976320087, lng: 127.11271636955665 },
             isPanto: false,
           })
