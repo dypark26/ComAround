@@ -22,7 +22,7 @@ const Map = () => {
   const [state, setState] = useState({
     // 지도의 초기 위치
     center: { lat: 33.452613, lng: 126.570888 },
-    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
+    // 지도 위치 변경할때 panTo효과
     isPanto: false,
   });
 
@@ -43,14 +43,44 @@ const Map = () => {
         const map = new kakao.maps.Map(mapContainer, options);
 
         //마커설정
-        const markerPosition = new kakao.maps.LatLng(
+        const 카카오마커 = new kakao.maps.LatLng(
           33.4524641253727,
           126.57087301364975
         );
-        const marker = new kakao.maps.Marker({
-          position: markerPosition,
+        const 쿠팡마커 = new kakao.maps.LatLng(
+          37.51573384062068,
+          127.09918343637015
+        );
+        const 네이버마커 = new kakao.maps.LatLng(
+          37.358848483254,
+          127.10505506241752
+        );
+        const 라인마커 = new kakao.maps.LatLng(37.3851, 127.1231);
+        const 배민마커 = new kakao.maps.LatLng(
+          37.51689976320087,
+          127.11271636955665
+        );
+        //마커표시
+        const 카카오marker = new kakao.maps.Marker({
+          position: 카카오마커,
         });
-        marker.setMap(map);
+        const 쿠팡marker = new kakao.maps.Marker({
+          position: 쿠팡마커,
+        });
+        const 네이버marker = new kakao.maps.Marker({
+          position: 네이버마커,
+        });
+        const 라인marker = new kakao.maps.Marker({
+          position: 라인마커,
+        });
+        const 배민marker = new kakao.maps.Marker({
+          position: 배민마커,
+        });
+        카카오marker.setMap(map);
+        쿠팡marker.setMap(map);
+        네이버marker.setMap(map);
+        라인marker.setMap(map);
+        배민marker.setMap(map);
       });
     });
   }, [state.center.lat, state.center.lng]);
@@ -85,7 +115,7 @@ const Map = () => {
         onClick={() =>
           setState({
             center: { lat: 37.51573384062068, lng: 127.09918343637015 },
-            isPanto: true,
+            isPanto: false,
           })
         }
       >
@@ -95,7 +125,7 @@ const Map = () => {
         onClick={() =>
           setState({
             center: { lat: 37.358848483254, lng: 127.10505506241752 },
-            isPanto: true,
+            isPanto: false,
           })
         }
       >
@@ -105,7 +135,7 @@ const Map = () => {
         onClick={() =>
           setState({
             center: { lat: 37.3851, lng: 127.1231 },
-            isPanto: true,
+            isPanto: false,
           })
         }
       >
@@ -115,7 +145,7 @@ const Map = () => {
         onClick={() =>
           setState({
             center: { lat: 37.51689976320087, lng: 127.11271636955665 },
-            isPanto: true,
+            isPanto: false,
           })
         }
       >
