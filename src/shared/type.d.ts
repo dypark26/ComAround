@@ -35,3 +35,8 @@ declare type listProps = {
   listType: string;
   children: string;
 };
+
+declare type locationtype = {
+  lat: number;
+  lng: number;
+};

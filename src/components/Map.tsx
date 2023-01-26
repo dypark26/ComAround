@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
@@ -14,10 +14,7 @@ const Map = () => {
   const location = useLocation();
   const urlReqCompanyName = location.state["companyName"];
   console.log("urlReqCompanyName:", urlReqCompanyName);
-  interface locationtype {
-    lat: number;
-    lng: number;
-  }
+
   const mapLocation: locationtype =
     urlReqCompanyName === "kakao"
       ? companyLocation[0]

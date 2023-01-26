@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: SurveyData = {
   id: Date.now(),
-  company: "naver",
+  company: "",
   commute: 0,
   convenient: 0,
   restaurant: 0,
