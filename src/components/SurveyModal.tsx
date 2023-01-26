@@ -5,6 +5,7 @@ import ProsConsList from "./ProsConsList";
 import { supabase } from "../shared/supabaseClient";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/config/configStore";
+import { response } from "express";
 
 const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
   const surveyData = useSelector((state: RootState) => state.surveyData);
@@ -27,6 +28,11 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
   // Supabase로 데이터 포스트하는 함수
   const postSurveyData = async () => {
     const response = await supabase.from("SurveyData").insert(surveyData);
+
+    if (response) {
+      alert("설문조사 제출완료!");
+    }
+
     if (response.error) {
       console.log("error", response.error);
     }
