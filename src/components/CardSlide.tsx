@@ -1,45 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
+// 이미지를 불러온다.
 import img from "../img/imgs1.jpg";
 import img2 from "../img/imgs2.jpg";
 import img3 from "../img/imgs3.jpg";
-
-const images: string[] = [img, img2, img3];
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-`;
-
-const FillImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const PickerWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  transform: translate(-50%, -10px);
-  display: flex;
-`;
-
-const Picker = styled.div<{ background: string }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: ${(props) => props.background};
-  margin: 0 6px;
-  cursor: pointer;
-`;
-
+// 이미지를 배열에 넣어준다.
 const CardSlide = (): JSX.Element => {
   const [pickers, setPickers] = useState<JSX.Element[]>([]);
   const [pickIndex, setPickIndex] = useState<number>(0);
   //custominterval 은 3000(3초)으로 초기화
-  const [custominterval, setCustomInterval] = useState(3000);
-
+  const [custominterval] = useState(3000);
+  // 이미지를 불러온다.
   const onPickIndex = useCallback(
     (idx: number): void => {
       if (pickIndex === idx) {
@@ -93,3 +64,34 @@ const CardSlide = (): JSX.Element => {
 };
 
 export default CardSlide;
+
+const images: string[] = [img, img2, img3];
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+`;
+
+const FillImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const PickerWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, -10px);
+  display: flex;
+`;
+
+const Picker = styled.div<{ background: string }>`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: ${(props) => props.background};
+  margin: 0 6px;
+  cursor: pointer;
+`;

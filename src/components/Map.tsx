@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-
 type ResolveType = () => void;
-
 const Map = () => {
   const companyLocation = [
     { lat: 33.4524641253727, lng: 126.57087301364975 },
@@ -13,16 +11,13 @@ const Map = () => {
     { lat: 37.3851, lng: 127.1231 },
     { lat: 37.51689976320087, lng: 127.11271636955665 },
   ];
-
   const location = useLocation();
-
   const urlReqCompanyName = location.state["companyName"];
-
+  console.log("urlReqCompanyName:", urlReqCompanyName);
   interface locationtype {
-    lat?: number;
-    lng?: number;
+    lat: number;
+    lng: number;
   }
-
   const mapLocation: locationtype =
     urlReqCompanyName === "kakao"
       ? companyLocation[0]
@@ -33,7 +28,7 @@ const Map = () => {
       : urlReqCompanyName === "line"
       ? companyLocation[3]
       : companyLocation[4];
-  console.log(mapLocation);
+  console.log("mapLocation", mapLocation);
   const new_script = (src: string) => {
     return new Promise((resolve: any, reject) => {
       const script = document.createElement("script");
@@ -47,24 +42,23 @@ const Map = () => {
       document.head.appendChild(script);
     });
   };
-
   const [locationState, setLocationState] = useState({
     // 지도의 초기 위치
     center: { lat: 33.4524641253727, lng: 126.57087301364975 },
     // 지도 위치 변경할때 panTo효과
     isPanto: false,
   });
-
-  // setLocationState({
-  //   center: mapLocation,
-  //   isPanto: false,
-  // });
-
+  useEffect(() => {
+    setLocationState({
+      center: mapLocation,
+      isPanto: false,
+    });
+    console.log("locationState:", locationState);
+  }, [urlReqCompanyName]);
   useEffect(() => {
     const my_script = new_script(
       "https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=52eb5d914276b85fd35eead69d3ee598"
     );
-
     my_script.then(() => {
       console.log("script loaded!!!");
       const kakao = window["kakao"];
@@ -78,7 +72,6 @@ const Map = () => {
           level: 3,
         };
         const map = new kakao.maps.Map(mapContainer, options);
-
         //마커설정
         const KakaoLocation = new kakao.maps.LatLng(
           33.4524641253727,
@@ -123,23 +116,19 @@ const Map = () => {
   }, [locationState.center.lat, locationState.center.lng]);
   return (
     <div className="App">
-      <div
-        id="map"
-        className="map"
-        style={{
-          width: "100%",
-          height: "600px",
-          alignItems: "center",
-          justifyContent: "center",
-          marginLeft: "auto",
-
-          borderStyle: "solid",
-          borderWidth: "medium",
-          borderColor: "#D8D8D8",
-        }}
-      />
+      <MapView id="map" className="map" />
     </div>
   );
 };
-
 export default Map;
+
+const MapView = styled.div`
+  width: 1000px;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border-style: solid;
+  border-width: medium;
+  border-color: #d8d8d8;
+`;
