@@ -1,14 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CompanyPage from "../pages/CompanyPage";
 import MainPage from "../pages/MainPage";
-import Map from "../components/Map";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Map />} />
-        <Route path="companyPage/:id" element={<CompanyPage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/companyPage/:id" element={<CompanyPage />} />
       </Routes>
     </BrowserRouter>
   );
