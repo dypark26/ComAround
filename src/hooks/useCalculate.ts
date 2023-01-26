@@ -15,13 +15,19 @@ const useCalculate = (
   const [totalPros, setTotalPros] = useState(0);
   const [totalAVE, setTotalAVE] = useState(0);
   // getTable 은 api.ts에 있습니다.
-  const { data } = useQuery<any>(["table"], () => getTable(urlReqCompanyName), {
-    onSuccess: ({ data }) => {
-      setTotalPros(countALL(data, prosType));
-      setTotalAVE(countAVE(data, category));
-    },
-  });
-  return { totalPros, totalAVE };
+  console.log("prosType", prosType);
+  console.log("category", category);
+  const { data, refetch } = useQuery<any>(
+    ["table"],
+    () => getTable(urlReqCompanyName),
+    {
+      onSuccess: ({ data }) => {
+        setTotalPros(countALL(data, prosType));
+        setTotalAVE(countAVE(data, category));
+      },
+    }
+  );
+  return { totalPros, totalAVE, refetch };
 };
 
 export default useCalculate;
