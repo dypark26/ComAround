@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CustomTag from "./CustomTag";
 
-const ProsConsList: React.FC<listProps> = ({ listType, children }) => {
+const ProsConsList: React.FC<listProps> = ({ isModal, listType, children }) => {
   // 장단점 리스트
   const checkList: ProsConsType[] = [
     { id: "pros1", type: "pros", content: "🛒 다이소가 있어요" },
@@ -17,6 +17,7 @@ const ProsConsList: React.FC<listProps> = ({ listType, children }) => {
   ];
 
   // 장단점 리스트 내부의 type값으로 장점 단점 리스트 filtering 하고,
+  // 모달일 때와
   // 세부항목은 하위 컴포넌트 CustomTag로 각각 maping 하기
   return (
     <>
@@ -26,11 +27,15 @@ const ProsConsList: React.FC<listProps> = ({ listType, children }) => {
           .filter((item) => item.type === listType)
           .map((item) => {
             return (
-              <CustomTag
-                key={`${item.id}`}
-                id={item.id}
-                content={item.content}
-              />
+              <>
+                <CustomTag
+                  key={`${item.id}`}
+                  id={item.id}
+                  content={item.content}
+                  total={`${item.id}`}
+                  isModal={isModal}
+                />
+              </>
             );
           })}
       </ProsConsListWrapper>
@@ -42,6 +47,7 @@ export default ProsConsList;
 
 const ProsConsListWrapper = styled.div`
   display: flex;
+  min-width: 240px;
   flex-direction: column;
   flex: 2;
   font-weight: 600;

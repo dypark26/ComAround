@@ -50,6 +50,8 @@ const Title = styled.div`
 
 const CardWrapper = styled.div`
   flex-direction: row;
+  min-width: 176px;
+  flex-grow: 2;
   height: calc(356px / 3 - 32px);
   padding: 16px;
   border-radius: 10px;

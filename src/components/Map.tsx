@@ -126,8 +126,9 @@ const MapView = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  border-style: solid;
-  border-width: medium;
-  border-color: #d8d8d8;
+  border: none;
   z-index: -10;
+  @media (max-width: 768px) {
+    height: 50vh;
+  }
 `;

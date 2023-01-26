@@ -1,14 +1,20 @@
 import styled from "styled-components";
 import StarCard from "../components/StarCard";
-import close from "../assets/close-button.svg";
 import ProsConsList from "./ProsConsList";
 import { supabase } from "../shared/supabaseClient";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/config/configStore";
-import { response } from "express";
+import { resetState } from "../redux/module/SurveySlice";
 
-const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
+const SurveyModal = ({
+  handleCloseModal,
+}: {
+  handleCloseModal: () => void;
+}) => {
+  const dispatch = useDispatch();
   const surveyData = useSelector((state: RootState) => state.surveyData);
+  const surveyDataValue = Object.values(surveyData);
+  console.log("surveyDataValue 잘 들어감?", surveyDataValue);
 
   // 값이 잘 변경 되는지 확인
   console.log("교통편의 몇점?", surveyData.commute);
@@ -31,6 +37,8 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
 
     if (response) {
       alert("설문조사 제출완료!");
+      handleCloseModal();
+      dispatch(resetState());
     }
 
     if (response.error) {
@@ -40,14 +48,29 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
 
   // 제출버튼 클릭하면, Supabase로 설문조사 데이터 제출
   const handleSubmit = () => {
+    if (
+      surveyData.commute === 0 ||
+      surveyData.convenient === 0 ||
+      surveyData.restaurant === 0
+    ) {
+      alert("평점을 모두 기입해주세요!");
+      return;
+    } else if (surveyDataValue.includes(true) === false) {
+      alert("장단점을 최소한 한 개 이상 선택해주세요!");
+      return;
+    }
     postSurveyData();
   };
 
   return (
     <>
       <ModalSection>
-        <ModalCloseButton onClick={handleModal}>
-          <img src={close} alt="close button" style={{ display: "block" }} />
+        <ModalCloseButton onClick={handleCloseModal}>
+          <img
+            src="/assets/close-button.svg"
+            alt="close button"
+            style={{ display: "block" }}
+          />
         </ModalCloseButton>
         <Title>네이버 본사 근처에 대해 알려주세요!</Title>
         <ContentsContainer>
@@ -57,8 +80,12 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
             <StarCard listType={"convenient"}>편의시설</StarCard>
             <StarCard listType={"restaurant"}>주변맛집</StarCard>
           </StarListWrapper>
-          <ProsConsList listType={"pros"}>이런점이 좋아요</ProsConsList>
-          <ProsConsList listType={"cons"}>이런점이 아쉬워요</ProsConsList>
+          <ProsConsList isModal={true} listType={"pros"}>
+            이런점이 좋아요
+          </ProsConsList>
+          <ProsConsList isModal={true} listType={"cons"}>
+            이런점이 아쉬워요
+          </ProsConsList>
         </ContentsContainer>
         <SubmitButton onClick={handleSubmit}>제출하기</SubmitButton>
       </ModalSection>
@@ -70,7 +97,9 @@ const SurveyModal = ({ handleModal }: { handleModal: () => void }) => {
 export default SurveyModal;
 
 const ModalSection = styled.section`
-  width: 1200px;
+  min-width: 800px;
+  max-width: 1200px;
+  width: 80%;
   height: fit-content;
   position: absolute;
   top: 50%;

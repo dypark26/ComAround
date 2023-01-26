@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { companyState } from "../redux/module/SurveySlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/config/configStore";
 
 const SideNav = () => {
   const kakao = "kakao";
@@ -7,6 +10,14 @@ const SideNav = () => {
   const naver = "naver";
   const line = "line";
   const baemin = "baemin";
+
+  const dispatch = useDispatch();
+  const handleCompanyUpdate = (name: string) => {
+    dispatch(companyState({ name: name }));
+  };
+
+  const surveyData = useSelector((state: RootState) => state.surveyData);
+  console.log("회사이름 잘들어갔어??", surveyData.company);
 
   return (
     <>
@@ -16,7 +27,7 @@ const SideNav = () => {
             ComAround
           </Link>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onClick={() => handleCompanyUpdate(kakao)}>
           <Link
             to={"/companyPage/kakao"}
             state={{ companyName: kakao }}
@@ -25,7 +36,7 @@ const SideNav = () => {
             카카오
           </Link>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onClick={() => handleCompanyUpdate(coupang)}>
           <Link
             to={"/companyPage/coupang"}
             state={{ companyName: coupang }}
@@ -34,7 +45,7 @@ const SideNav = () => {
             쿠팡
           </Link>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onClick={() => handleCompanyUpdate(naver)}>
           <Link
             to={"/companyPage/naver"}
             state={{ companyName: naver }}
@@ -43,7 +54,7 @@ const SideNav = () => {
             네이버
           </Link>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onClick={() => handleCompanyUpdate(line)}>
           <Link
             to={"/companyPage/line"}
             state={{ companyName: line }}
@@ -52,7 +63,7 @@ const SideNav = () => {
             라인
           </Link>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onClick={() => handleCompanyUpdate(baemin)}>
           <Link
             to={"/companyPage/baemin"}
             state={{ companyName: baemin }}
