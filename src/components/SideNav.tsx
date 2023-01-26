@@ -13,7 +13,7 @@ const SideNav = () => {
     <>
       <StyledSideNav>
         <StyledButton>
-          <Link to={"/mainpage"} style={{ textDecoration: "none" }}>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
             ComAround
           </Link>
         </StyledButton>
