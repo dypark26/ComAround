@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import CardSlide from "./CardSlide";
 
 const SideNav = () => {
   const kakao = "kakao";
@@ -70,7 +69,7 @@ const SideNav = () => {
 export default SideNav;
 
 const StyledSideNav = styled.div`
-  width: 200px;
+  width: 300px;
   height: 100vh;
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-type ResolveType = () => void;
+
 const Map = () => {
   const companyLocation = [
     { lat: 33.4524641253727, lng: 126.57087301364975 },
@@ -14,10 +14,7 @@ const Map = () => {
   const location = useLocation();
   const urlReqCompanyName = location.state["companyName"];
   console.log("urlReqCompanyName:", urlReqCompanyName);
-  interface locationtype {
-    lat: number;
-    lng: number;
-  }
+
   const mapLocation: locationtype =
     urlReqCompanyName === "kakao"
       ? companyLocation[0]
@@ -61,6 +58,7 @@ const Map = () => {
     );
     my_script.then(() => {
       console.log("script loaded!!!");
+      //@ts-ignore
       const kakao = window["kakao"];
       kakao.maps.load(() => {
         const mapContainer = document.getElementById("map") as HTMLElement;
@@ -115,20 +113,21 @@ const Map = () => {
     });
   }, [locationState.center.lat, locationState.center.lng]);
   return (
-    <div className="App">
+    <>
       <MapView id="map" className="map" />
-    </div>
+    </>
   );
 };
 export default Map;
 
 const MapView = styled.div`
-  width: 1000px;
-  height: 600px;
+  height: 50vh;
+  width: 100%;
   align-items: center;
   justify-content: center;
   margin-left: auto;
   border-style: solid;
   border-width: medium;
   border-color: #d8d8d8;
+  z-index: -10;
 `;
