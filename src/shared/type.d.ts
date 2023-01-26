@@ -40,3 +40,8 @@ declare type locationtype = {
   lat: number;
   lng: number;
 };
+
+declare type optionsType = {
+  center: kakao.maps.LatLng;
+  level: number;
+};
