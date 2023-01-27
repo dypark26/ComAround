@@ -128,6 +128,6 @@ const MapView = styled.div`
   margin-left: auto;
   border-style: solid;
   border-width: medium;
-  border-color: #d8d8d8;
-  z-index: -10;
+  z-index: 0;
+  border: none;
 `;
