@@ -9,20 +9,27 @@ import ProsConsList from "./ProsConsList";
 import SurveyModal from "./SurveyModal";
 
 const CompanyReview = () => {
+  // const surveyData = useSelector((state: RootState) => state.surveyData);
+
+  const location = useLocation();
+  const urlReqCompanyName = location.state["companyName"];
+  // console.log("회사이름!!!:", urlReqCompanyName, typeof urlReqCompanyName);
+
   // 설문조사 하러가기 버튼 누를 때마다 모달창 on / off
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const handleOpenModal = () => {
     setModalOpen(!modalOpen);
+    dispatch(companyState({ name: urlReqCompanyName }));
+    // console.log("모달 열었을 때 회사는?", surveyData.company);
   };
   const handleCloseModal = () => {
     setModalOpen(!modalOpen);
     dispatch(resetState());
+    // console.log("모달 닫았을 때 회사는?", surveyData.company);
   };
 
-  const location = useLocation();
-  const urlReqCompanyName = location.state["companyName"];
-  // console.log("회사이름!!!:", urlReqCompanyName, typeof urlReqCompanyName);
+  // console.log("모달 회사는?", surveyData.company);
 
   const { totalAVE: commuteAVE, refetch } = useCalculate(
     urlReqCompanyName,
@@ -104,7 +111,8 @@ const ReviewSection = styled.div`
   padding: 32px;
   background-color: white;
   @media (max-width: 768px) {
-    height: 50vh;
+    overflow: scroll;
+    height: 60vh;
   }
 `;
 
@@ -121,6 +129,7 @@ const ContentsContainer = styled.div`
   margin-bottom: 20px;
   @media (max-width: 768px) {
     flex-direction: column;
+    overflow: scroll;
     gap: 60px;
   }
 `;
@@ -181,5 +190,9 @@ const SurveyButton = styled.button`
   font-size: 24px;
   :hover {
     cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    position: sticky;
+    bottom: 0;
   }
 `;

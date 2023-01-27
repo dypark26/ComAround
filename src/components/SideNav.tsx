@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { companyState } from "../redux/module/SurveySlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../redux/config/configStore";
 
 const SideNav = () => {
@@ -10,11 +9,6 @@ const SideNav = () => {
   const naver = "naver";
   const line = "line";
   const baemin = "baemin";
-
-  const dispatch = useDispatch();
-  const handleCompanyUpdate = (name: string) => {
-    dispatch(companyState({ name: name }));
-  };
 
   const surveyData = useSelector((state: RootState) => state.surveyData);
   console.log("회사이름 잘들어갔어??", surveyData.company);
@@ -27,7 +21,7 @@ const SideNav = () => {
             ComAround
           </Link>
         </StyledButton>
-        <StyledButton onClick={() => handleCompanyUpdate(kakao)}>
+        <StyledButton>
           <Link
             to={"/companyPage/kakao"}
             state={{ companyName: kakao }}
@@ -36,7 +30,7 @@ const SideNav = () => {
             카카오
           </Link>
         </StyledButton>
-        <StyledButton onClick={() => handleCompanyUpdate(coupang)}>
+        <StyledButton>
           <Link
             to={"/companyPage/coupang"}
             state={{ companyName: coupang }}
@@ -45,7 +39,7 @@ const SideNav = () => {
             쿠팡
           </Link>
         </StyledButton>
-        <StyledButton onClick={() => handleCompanyUpdate(naver)}>
+        <StyledButton>
           <Link
             to={"/companyPage/naver"}
             state={{ companyName: naver }}
@@ -54,7 +48,7 @@ const SideNav = () => {
             네이버
           </Link>
         </StyledButton>
-        <StyledButton onClick={() => handleCompanyUpdate(line)}>
+        <StyledButton>
           <Link
             to={"/companyPage/line"}
             state={{ companyName: line }}
@@ -63,7 +57,7 @@ const SideNav = () => {
             라인
           </Link>
         </StyledButton>
-        <StyledButton onClick={() => handleCompanyUpdate(baemin)}>
+        <StyledButton>
           <Link
             to={"/companyPage/baemin"}
             state={{ companyName: baemin }}
@@ -86,6 +80,9 @@ const StyledSideNav = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: red;
+  @media (max-width: 768px) {
+    width: 20vh;
+  }
 `;
 
 const StyledButton = styled.button`

@@ -19,13 +19,15 @@ export default CompanyPage;
 
 const CompanyPageContainer = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
 const MainArea = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   width: calc(100% - 300px);
   height: 100vh;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;

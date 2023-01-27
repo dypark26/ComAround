@@ -97,7 +97,6 @@ const SurveyModal = ({
 export default SurveyModal;
 
 const ModalSection = styled.section`
-  min-width: 800px;
   max-width: 1200px;
   width: 80%;
   height: fit-content;
@@ -113,6 +112,11 @@ const ModalSection = styled.section`
   padding: 32px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    height: 80vh;
+    overflow: scroll;
+    width: 80wh;
+  }
 `;
 
 const ModalCloseButton = styled.button`
@@ -140,11 +144,16 @@ const Title = styled.div`
   font-size: 40px;
   margin-bottom: 56px;
 `;
+
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
   margin-bottom: 32px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 60px;
+  }
 `;
 const StarListWrapper = styled.div`
   display: flex;

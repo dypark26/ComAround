@@ -23,7 +23,7 @@ export const surveySlice = createSlice({
   initialState,
   reducers: {
     resetState(state) {
-      const resetState: any = { ...initialState };
+      const resetState: any = { ...initialState, id: Date.now() };
       return resetState;
     },
     companyState(state, action: PayloadAction<companyData>) {
