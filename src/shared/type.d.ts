@@ -53,6 +53,11 @@ declare type locationtype = {
   lng: number;
 };
 
+declare type optionsType = {
+  center: kakao.maps.LatLng;
+  level: number;
+};
+
 declare type urlArrayType = {
   [key: string]: string;
 };
