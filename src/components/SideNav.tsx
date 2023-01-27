@@ -69,6 +69,7 @@ const SideNav = () => {
 
 export default SideNav;
 
+//ComAround앞 동그라미
 const Circle = styled.button`
   border-radius: 50%;
   background-color: #62ffa1;
@@ -78,6 +79,7 @@ const Circle = styled.button`
   margin-right: 5px;
 `;
 
+//Com글씨
 const ComAroundSpan = styled.span`
   color: #62ffa1;
 `;
@@ -90,6 +92,8 @@ const StyledSideNav = styled.div`
   align-items: center;
   background-color: #d9d9d9;
 `;
+
+//ComAround버튼
 const ComAroundButton = styled.button`
   width: 200px;
   height: 50px;
@@ -101,19 +105,7 @@ const ComAroundButton = styled.button`
   font-weight: bold;
 `;
 
-const StyledButton = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: #9c9c9c;
-  color: black;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  &:hover {
-    background-color: #62ffa1;
-  }
-`;
-
+//카카오,네이버,우아한 형제들 버튼
 const BlackButton = styled.button`
   width: 200px;
   height: 50px;
@@ -123,7 +115,21 @@ const BlackButton = styled.button`
 
   font-size: 20px;
   font-weight: bold;
-  &:hover {
+  :hover {
+    background-color: #62ffa1;
+  }
+`;
+
+//쿠팡,배민버튼
+const StyledButton = styled.button`
+  width: 200px;
+  height: 50px;
+  background-color: #9c9c9c;
+  color: black;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  :hover {
     background-color: #62ffa1;
   }
 `;
