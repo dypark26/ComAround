@@ -47,6 +47,9 @@ const CompanyReview = () => {
     "restaurant"
   );
 
+  const wholeAVE = commuteAVE + convenientAVE + restaurantAVE;
+  const wholeAVEResult = wholeAVE / 3;
+
   const urlArray: urlArrayType = {
     kakao: "https://careers.kakao.com/kakaolife",
     naver: "https://recruit.navercorp.com/cnts/tech",
@@ -82,7 +85,7 @@ const CompanyReview = () => {
               <div>전체평점</div>
               <StarAVE>
                 <img src="/assets/star.svg" alt="star" width={40} />
-                <div className="total-star">4.3</div>
+                <div className="total-star">{wholeAVEResult.toFixed(1)}</div>
               </StarAVE>
             </TotalStarReview>
             <StarReview>

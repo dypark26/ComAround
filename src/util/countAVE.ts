@@ -6,12 +6,12 @@ import React from "react";
 // ⭐️ any로 타입 지정해놓은 부분은 supabase 계정 merge 후에 수정하도록 하겠습니다.
 const countAVE = (companyData: any, category: string): number => {
   let commuteAve: number = 0;
+  const aveArray: number[] = [];
   companyData?.map((item: any) => {
     console.log("countAVE의 category:", category);
     console.log("countAVE의 companyData:", companyData);
 
     console.log("item-countAVE:", item);
-    const aveArray: number[] = [];
     console.log("item[category]:", item[category]);
     aveArray.push(item[category]);
     console.log("aveArray.length :", aveArray.length);
@@ -20,7 +20,7 @@ const countAVE = (companyData: any, category: string): number => {
       0
     );
     console.log("commuteTotalResult는 commute의 총합", commuteTotalResult);
-    commuteAve = commuteTotalResult / aveArray.length;
+    commuteAve = Number((commuteTotalResult / aveArray.length).toFixed(1));
     console.log("commuteAve(평균값):", commuteAve);
   });
   return commuteAve;
