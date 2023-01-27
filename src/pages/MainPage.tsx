@@ -4,16 +4,16 @@ import styled from "styled-components";
 
 const MainPage = () => {
   return (
-    <CompanyPageWapper>
+    <CompanyPageWrapper>
       <SideNav />
       <CardSlide />
-    </CompanyPageWapper>
+    </CompanyPageWrapper>
   );
 };
 
 export default MainPage;
 
-const CompanyPageWapper = styled.div`
+const CompanyPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
