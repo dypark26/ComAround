@@ -22,6 +22,16 @@ export const surveySlice = createSlice({
   name: "surveyData",
   initialState,
   reducers: {
+    resetState(state) {
+      const resetState: any = { ...initialState, id: Date.now() };
+      return resetState;
+    },
+    companyState(state, action: PayloadAction<companyData>) {
+      const { name } = action.payload;
+      const newState: any = { ...state };
+      newState.company = name;
+      return newState;
+    },
     starState(state, action: PayloadAction<starData>) {
       const { name, rating } = action.payload;
       const newState: any = { ...state };
@@ -37,6 +47,7 @@ export const surveySlice = createSlice({
   },
 });
 
-export const { starState, prosConsState } = surveySlice.actions;
+export const { resetState, companyState, starState, prosConsState } =
+  surveySlice.actions;
 
 export default surveySlice.reducer;

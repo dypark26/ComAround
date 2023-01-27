@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/config/configStore";
 
 const SideNav = () => {
   const kakao = "kakao";
@@ -7,6 +9,9 @@ const SideNav = () => {
   const naver = "naver";
   const line = "line";
   const baemin = "baemin";
+
+  const surveyData = useSelector((state: RootState) => state.surveyData);
+  console.log("회사이름 잘들어갔어??", surveyData.company);
 
   return (
     <>

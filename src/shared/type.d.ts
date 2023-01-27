@@ -18,8 +18,15 @@ declare type SurveyData = {
 
 declare type ProsConsType = {
   id: string;
-  type?: string;
+  type: string;
   content: string;
+};
+
+declare type TagType = {
+  id: string;
+  content: string;
+  total: string;
+  isModal?: boolean;
 };
 
 declare type starData = {
@@ -27,16 +34,25 @@ declare type starData = {
   rating: number;
 };
 
+declare type companyData = {
+  name: string;
+};
+
 declare type prosConsData = {
   name: string;
 };
 
 declare type listProps = {
+  isModal?: boolean;
   listType: string;
-  children: string;
+  children?: string;
 };
 
 declare type locationtype = {
   lat: number;
   lng: number;
+};
+
+declare type urlArrayType = {
+  [key: string]: string;
 };
