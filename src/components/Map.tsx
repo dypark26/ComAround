@@ -127,7 +127,7 @@ const MapView = styled.div`
   justify-content: center;
   margin-left: auto;
   border: none;
-  z-index: -10;
+  z-index: 0;
   @media (max-width: 768px) {
     height: 40vh;
     width: 100%;

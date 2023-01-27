@@ -19,12 +19,13 @@ export default CompanyPage;
 
 const CompanyPageContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const MainArea = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
   height: 100vh;
 
   @media (max-width: 768px) {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import useCalculate from "../hooks/useCalculate";
-import { RootState } from "../redux/config/configStore";
+// import { RootState } from "../redux/config/configStore";
 import { companyState, resetState } from "../redux/module/SurveySlice";
 import ProsConsList from "./ProsConsList";
 import SurveyModal from "./SurveyModal";
@@ -47,6 +47,14 @@ const CompanyReview = () => {
     "restaurant"
   );
 
+  const urlArray: urlArrayType = {
+    kakao: "https://careers.kakao.com/kakaolife",
+    naver: "https://recruit.navercorp.com/cnts/tech",
+    line: "https://careers.linecorp.com/ko/culture/6",
+    coupang: "https://www.coupang.jobs/kr/why-coupang/",
+    baemin: "https://www.woowahan.com/company/culture",
+  };
+
   useEffect(() => {
     refetch();
   }, [urlReqCompanyName]);
@@ -54,7 +62,19 @@ const CompanyReview = () => {
   return (
     <>
       <ReviewSection>
-        <Title src={`/assets/${urlReqCompanyName}.png`} alt="logo" />
+        <ReviewHeader>
+          <Title src={`/assets/${urlReqCompanyName}.png`} alt="logo" />
+          <div>
+            <a
+              href={urlArray[urlReqCompanyName]}
+              rel="noreferrer"
+              target="_blank"
+            >
+              이 회사가 궁금하다면?
+            </a>
+          </div>
+        </ReviewHeader>
+
         <ContentsContainer>
           <StarListWrapper>
             <div>평점</div>
@@ -114,6 +134,11 @@ const ReviewSection = styled.div`
     overflow: scroll;
     height: 60vh;
   }
+`;
+
+const ReviewHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Title = styled.img`

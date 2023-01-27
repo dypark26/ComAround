@@ -52,3 +52,7 @@ declare type locationtype = {
   lat: number;
   lng: number;
 };
+
+declare type urlArrayType = {
+  [key: string]: string;
+};
