@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const SideNav = () => {
   const location = useLocation();
-  console.log("location", location);
   const urlReqCompanyName =
     location.state === null ? "" : location.state["companyName"];
 

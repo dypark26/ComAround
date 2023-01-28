@@ -30,6 +30,17 @@ const SurveyModal = ({
     }
   };
 
+  const companyName =
+    surveyData.company === "kakao"
+      ? "카카오"
+      : surveyData.company === "coupang"
+      ? "쿠팡"
+      : surveyData.company === "naver"
+      ? "네이버"
+      : surveyData.company === "line"
+      ? "라인"
+      : "우아한 형제들";
+
   // 제출버튼 클릭하면, Supabase로 설문조사 데이터 제출
   const handleSubmit = () => {
     if (
@@ -56,7 +67,7 @@ const SurveyModal = ({
             style={{ display: "block" }}
           />
         </ModalCloseButton>
-        <Title>네이버 본사 근처에 대해 알려주세요!</Title>
+        <Title>{companyName} 본사 근처에 대해 알려주세요!</Title>
         <ContentsContainer>
           <StarListWrapper>
             <div>평점</div>
@@ -120,7 +131,7 @@ const ModalBackground = styled.div`
   bottom: 0;
   left: 0;
   background-color: black;
-  opacity: 40%;
+  opacity: 50%;
 `;
 
 const Title = styled.div`
