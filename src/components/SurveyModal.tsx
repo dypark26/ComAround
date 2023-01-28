@@ -14,22 +14,6 @@ const SurveyModal = ({
   const dispatch = useDispatch();
   const surveyData = useSelector((state: RootState) => state.surveyData);
   const surveyDataValue = Object.values(surveyData);
-  console.log("surveyDataValue 잘 들어감?", surveyDataValue);
-
-  // 값이 잘 변경 되는지 확인
-  console.log("교통편의 몇점?", surveyData.commute);
-  console.log("편의시설 몇점?", surveyData.convenient);
-  console.log("주변맛집 몇점?", surveyData.restaurant);
-  console.log("장점1:", surveyData.pros1);
-  console.log("장점2:", surveyData.pros2);
-  console.log("장점3:", surveyData.pros3);
-  console.log("장점4:", surveyData.pros4);
-  console.log("장점5:", surveyData.pros5);
-  console.log("단점1:", surveyData.cons1);
-  console.log("단점2:", surveyData.cons2);
-  console.log("단점3:", surveyData.cons3);
-  console.log("단점4:", surveyData.cons4);
-  console.log("단점5:", surveyData.cons5);
 
   // Supabase로 데이터 포스트하는 함수
   const postSurveyData = async () => {
@@ -107,22 +91,22 @@ const ModalSection = styled.section`
   z-index: 999;
   background-color: white;
   border-radius: 20px;
-  animation: 0.5s;
-  overflow: hidden;
   padding: 32px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     height: 80vh;
-    overflow: scroll;
     width: 80wh;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 
 const ModalCloseButton = styled.button`
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 18px;
+  right: 18px;
   background: none;
   border: none;
   padding: 12px;
@@ -150,9 +134,13 @@ const ContentsContainer = styled.div`
   flex-direction: row;
   gap: 20px;
   margin-bottom: 32px;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
+    overflow: scroll;
     flex-direction: column;
     gap: 60px;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 const StarListWrapper = styled.div`
@@ -179,4 +167,5 @@ const SubmitButton = styled.button`
   :hover {
     cursor: pointer;
   }
+  position: sticky;
 `;
