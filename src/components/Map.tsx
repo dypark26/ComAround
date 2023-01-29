@@ -24,8 +24,8 @@ const MapView = styled.div`
   margin-left: auto;
   border: none;
   z-index: 0;
-  @media (max-width: 768px) {
-    height: 40vh;
+  @media (max-width: 1000px) {
+    height: 20vh;
     width: 100%;
   }
 `;

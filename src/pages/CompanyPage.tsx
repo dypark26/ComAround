@@ -28,7 +28,7 @@ const MainArea = styled.div`
   width: calc(100% - 200px);
   height: 100vh;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     width: 80%;
   }
 `;

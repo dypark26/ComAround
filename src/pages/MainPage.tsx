@@ -1,6 +1,6 @@
 import SideNav from "../components/SideNav";
-import CardSlide from "../components/CardSlide";
 import styled from "styled-components";
+import CardSlide from "../components/CardSlide";
 
 const MainPage = () => {
   return (
