@@ -11,6 +11,11 @@
 <br>
 👉 [웹사이트 바로가기](https://com-around.vercel.app/)
 
+# Contents
+1. [Key Features](#key-features)
+2. [Usage](#usage)
+3. [Installation](#installation)
+
 # Key Features
 
 1. **지도 :** 회사 선택 시 회사 주변을 지도로 보여줍니다.
@@ -28,12 +33,16 @@
 - 당신만의 ComAround를 만들고 싶다면 아래의 내용을 따라 하세요!
 - Supabase에 가입합니다. ([Supabase 웹사이트 바로가기](https://supabase.com/))
 - Supabase에서 'SurveyData'라는 이름으로 database table을 생성합니다.
-  <img src = "public/assets/create.png" width="60%">
+
+<img src = "public/assets/create.png" width="100%">
+
 - database tables의 구조는 아래와 같습니다.
-  <img src = "public/assets/database.png" width="60%">
+
+<img src = "public/assets/database.png" width="100%">
+
 - ComAround repo를 클론 합니다. (Git과 Node.js 필요)
 
-```
+```bash
 # Clone this repository
 $ git clone <https://github.com/dypark26/ComAround.git>
 $ git clone git@github.com:dypark26/ComAround.git
@@ -47,10 +56,12 @@ $ npm install
 ```
 
 - supabase의 Settings - API 에서 URL과 ANON_KEY를 확인합니다.
-  <img src = "public/assets/key.png" width="60%">
+
+<img src = "public/assets/key.png" width="60%">
 
 - .env 파일을 생성하고 Supabase에서 제공한 URL과 ANON_KEY를 저장합니다.
-  <img src = "public/assets/supabase.png" width="60%">
+
+<img src = "public/assets/supabase.png" width="60%">
 
 - .env 수정 후 파일을 저장하고 IDE 종료 후 다시 실행합니다.
 
@@ -59,5 +70,5 @@ $ npm install
 ```
 # Run the app
 $ npm start
-
 ```
+
