@@ -162,7 +162,7 @@ const CompanyLink = styled.a`
 `;
 
 const LinkIcon = styled.img`
-  width: 20px;
+  width: 30px;
   height: auto;
 `;
 
@@ -223,7 +223,7 @@ const StarAVE = styled.div`
   gap: 8px;
   .total-star {
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 700;
   }
 `;
 
