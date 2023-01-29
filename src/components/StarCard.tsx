@@ -5,11 +5,9 @@ import { RootState } from "../redux/config/configStore";
 import { starState } from "../redux/module/SurveySlice";
 
 const StarCard: React.FC<listProps> = ({ listType, children }) => {
-  // store에서 설문조사 상태값 전체 가져오기 (별점, 장단점...)
   const dispatch = useDispatch();
   const surveyData = useSelector((state: RootState) => state.surveyData);
 
-  // 카드 children 값에 따라 교통편의 / 편의시설 / 주변맛집 평점 데이터 뽑아내기
   const rating =
     children === "교통편의"
       ? surveyData.commute
@@ -17,7 +15,6 @@ const StarCard: React.FC<listProps> = ({ listType, children }) => {
       ? surveyData.convenient
       : surveyData.restaurant;
 
-  // 별점 점수 변경할 때마다 변경된 상태값 store에 업데이트 하기
   const handleStarRating = (rating: number) => {
     dispatch(starState({ name: listType, rating: rating }));
   };

@@ -5,7 +5,6 @@ import useMapSetting from "../hooks/useMapSetting";
 const Map = () => {
   const location = useLocation();
   const urlReqCompanyName = location.state["companyName"];
-  // 🌸 useMapSetting : 지도관련 함수 커스텀훅으로 작성
   useMapSetting(urlReqCompanyName);
 
   return (

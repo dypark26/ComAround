@@ -11,10 +11,6 @@ const CustomTag: React.FC<TagType> = ({ id, content, total, isModal }) => {
     dispatch(prosConsState({ name: id }));
   };
 
-  // total이라는 이름으로 각 아이템의 id 값을 가져온다. ex: pros1, cons1...
-  // 여기서 id값은 장단점 태그 이름이므로 total = 장단점 태그의 이름
-  // 템플릿 리터럴을 사용해 useCalculate의 두번째 인자, 장단점이름에 가져온 total 넣어준다.
-  // totalCount 라는 이름으로 계산값을 alias 한다.
   const location = useLocation();
   const urlReqCompanyName = location.state["companyName"];
   const { refetch, totalPros: totalCount } = useCalculate(

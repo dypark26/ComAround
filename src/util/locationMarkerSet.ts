@@ -1,7 +1,6 @@
 const locationMarkerSet = (mapContainer: HTMLElement, options: optionsType) => {
   const map = new kakao.maps.Map(mapContainer, options);
 
-  //마커설정
   const KakaoLocation = new kakao.maps.LatLng(
     33.4524641253727,
     126.57087301364975
@@ -19,7 +18,6 @@ const locationMarkerSet = (mapContainer: HTMLElement, options: optionsType) => {
     37.51689976320087,
     127.11271636955665
   );
-  //마커표시
   const KakaoMarker = new kakao.maps.Marker({
     position: KakaoLocation,
   });

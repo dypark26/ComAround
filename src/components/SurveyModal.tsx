@@ -15,7 +15,6 @@ const SurveyModal = ({
   const surveyData = useSelector((state: RootState) => state.surveyData);
   const surveyDataValue = Object.values(surveyData);
 
-  // Supabase로 데이터 포스트하는 함수
   const postSurveyData = async () => {
     const response = await supabase.from("SurveyData").insert(surveyData);
 
@@ -41,7 +40,6 @@ const SurveyModal = ({
       ? "라인"
       : "우아한 형제들";
 
-  // 제출버튼 클릭하면, Supabase로 설문조사 데이터 제출
   const handleSubmit = () => {
     if (
       surveyData.commute === 0 ||

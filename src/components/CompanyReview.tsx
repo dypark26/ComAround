@@ -11,7 +11,6 @@ const CompanyReview = () => {
   const location = useLocation();
   const urlReqCompanyName = location.state["companyName"];
 
-  // 설문조사 하러가기 버튼 누를 때마다 모달창 on / off
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const handleOpenModal = () => {

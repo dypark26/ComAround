@@ -1,7 +1,6 @@
 import locationMarkerSet from "./locationMarkerSet";
 
 const setScriptInMap = (locationState: any) => {
-  // 지도 script그리는 부분
   const new_script = (src: string) => {
     return new Promise((resolve: any, reject) => {
       const script = document.createElement("script");
@@ -15,13 +14,10 @@ const setScriptInMap = (locationState: any) => {
       document.head.appendChild(script);
     });
   };
-  // my_script가 실행되고,
   const my_script = new_script(
     "https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=52eb5d914276b85fd35eead69d3ee598"
   );
   my_script.then(() => {
-    console.log("script loaded!!!");
-    //@ts-ignore
     const kakao = window["kakao"];
     kakao.maps.load(() => {
       const mapContainer = document.getElementById("map") as HTMLElement;
@@ -32,7 +28,6 @@ const setScriptInMap = (locationState: any) => {
         ),
         level: 3,
       };
-      // 🌸 locationMarkerSetFuc : 마커표시 함수
       locationMarkerSet(mapContainer, options);
     });
   });

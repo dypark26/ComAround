@@ -76,12 +76,10 @@ const StyledSideNav = styled.div`
   background-color: #2f3338;
 `;
 
-//Com글씨
 const ComAroundSpan = styled.span`
   color: #62ffa1;
 `;
 
-//ComAround버튼
 const ComAroundButton = styled.button`
   display: flex;
   flex-direction: row;
@@ -99,7 +97,6 @@ const ComAroundButton = styled.button`
   }
 `;
 
-//사이드바 버튼
 const BlackButton = styled.button<{ location: any }>`
   width: 200px;
   height: 56px;
