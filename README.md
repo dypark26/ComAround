@@ -44,7 +44,7 @@
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/dypark26/ComAround.git>
+$ git clone https://github.com/dypark26/ComAround.git
 $ git clone git@github.com:dypark26/ComAround.git
 
 # Go into the repository
