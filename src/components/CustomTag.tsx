@@ -49,12 +49,14 @@ export default CustomTag;
 const TagWrapper = styled.div`
   height: fit-content;
   position: relative;
+
   input[type="checkbox"] {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0%;
     margin: 0px;
+    cursor: pointer;
   }
   input[type="checkbox"]:checked + label {
     background-color: #62ffa1;
