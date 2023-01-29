@@ -57,7 +57,7 @@ $ npm install
 
 - supabase의 Settings - API 에서 URL과 ANON_KEY를 확인합니다.
 
-<img src = "public/assets/key.png" width="60%">
+<img src = "public/assets/key.png" width="100%">
 
 - .env 파일을 생성하고 Supabase에서 제공한 URL과 ANON_KEY를 저장합니다.
 
@@ -67,7 +67,7 @@ $ npm install
 
 - 프로젝트를 실행합니다.
 
-```
+```bash
 # Run the app
 $ npm start
 ```
